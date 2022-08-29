@@ -1,0 +1,8 @@
+SQLAlchemy==1.4.20
+SQLAlchemy-Utils==0.37.8
+greenlet==1.1.2
+grpcio==1.47.0
+grpcio-tools==1.47.0
+protobuf==3.20.1
+psycopg2==2.9.3
+python-dotenv==0.20.0

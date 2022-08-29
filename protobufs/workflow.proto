@@ -1,0 +1,122 @@
+syntax = "proto3";
+package main;
+import "google/protobuf/empty.proto";
+
+message Role{
+  RoleDetails roledetails = 1;
+  string createdby = 2;
+  string modifiedby = 3;
+}
+
+message RoleNames{
+  repeated string rolenames = 1;
+}
+
+message RoleDetails{
+  string roleid = 1;
+  string rolename = 2;
+  string roletype = 3;
+  bool status = 4;
+  int32 currentusers = 5;
+  string desc = 6;
+}
+
+message Roles{
+  repeated  RoleDetails roles = 1;
+}
+
+message RoleId{
+  string roleid = 1;
+}
+
+message RoleThreshold{
+  string rolename = 1;
+  int32 minusers = 2;
+  int32 maxusers = 3;
+  string description = 4;
+  bool status = 5;
+}
+
+message AllRoleThresholds{
+  repeated RoleThreshold rolethresholds = 1;
+}
+
+message UserDetails{
+  string id = 1;
+  string username = 2;
+  string firstname = 3;
+  string lastname = 4;
+  string email = 5;
+  bool status =6;
+}
+
+message Users{
+  repeated UserDetails users = 1;
+}
+
+message RoletoUser{
+  string role_id = 1;
+  string user_id = 2;
+}
+
+message RoletoUsergroup{
+  string role_id = 1;
+  string user_group_id = 2;
+}
+
+message AttributetoUser{
+  string attribute_id = 1;
+  string user_id = 2;
+}
+message AttributeGrouptoUser{
+  string attribute_group_id = 1;
+  string user_id = 2;
+}
+
+message StatusResponse{
+  string message = 1;
+}
+
+message RolePermissions{
+
+    message Actions {
+        string action = 1;
+        bool value = 2;
+    }
+
+    message Permissions {
+        string module = 1;
+        string submodule = 2;
+        repeated Actions actions = 3;
+    }
+
+    string roleid = 1;
+    string createdby = 2;
+    repeated Permissions permissions = 3;
+}
+
+service WorkFlow {
+  rpc CreateRole(Role) returns (StatusResponse) {}
+  rpc UpdateRole(Role) returns (StatusResponse) {}
+  rpc GetRole(RoleId) returns (RoleDetails) {}
+  rpc GetAllRole(google.protobuf.Empty) returns (Roles){}
+  rpc DeleteRole(RoleId) returns (StatusResponse) {}
+  rpc CreateThreshold(RoleThreshold) returns (StatusResponse) {}
+  rpc GetRoleThreshold(RoleId) returns (RoleThreshold) {}
+  rpc GetAllRoleThreshold(google.protobuf.Empty) returns (AllRoleThresholds) {}
+  rpc GetRoleNames(google.protobuf.Empty) returns (RoleNames) {}
+  rpc GetUserDetails(google.protobuf.Empty) returns (Users){}
+  rpc AssignRoletoUser(RoletoUser) returns (StatusResponse){}
+  rpc AssignRoletoUserGroup(RoletoUsergroup) returns (StatusResponse){}
+  rpc GetUserforRole(RoleId) returns (Users) {}
+  rpc AssignAttributestoUser(AttributetoUser) returns (StatusResponse) {}
+  rpc AssignAttributeGroupstoUser(AttributeGrouptoUser) returns (StatusResponse) {}
+  rpc AssignPermissionToRole (RolePermissions) returns (StatusResponse) {}
+  rpc GetRolePermissions (RoleId) returns (RolePermissions) {}
+  rpc UpdateRolePermissions (RolePermissions) returns (StatusResponse) {}
+  rpc DeleteRolePermissions (RoleId) returns (StatusResponse) {}
+}
+
+
+
+

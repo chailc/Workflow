@@ -1,0 +1,2716 @@
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object has no attribute 'update'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in RoleThreshhold
+    db_role.update(vars(threshhold))
+AttributeError: 'WorkflowRoles' object has no attribute 'update'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Instance '<WorkflowRoles at 0x1d7031e56d0>' is not persistent within this Session
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in RoleThreshhold
+    db.refresh(db_role)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2272, in refresh
+    self._expire_state(state, attribute_names)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2381, in _expire_state
+    self._validate_persistent(state)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3076, in _validate_persistent
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<WorkflowRoles at 0x1d7031e56d0>' is not persistent within this Session
+ERROR:grpc._server:Exception calling application: Instance '<WorkflowRoles at 0x1d7031e52e0>' is not persistent within this Session
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in RoleThreshhold
+    db.refresh(db_role)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2272, in refresh
+    self._expire_state(state, attribute_names)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2381, in _expire_state
+    self._validate_persistent(state)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3076, in _validate_persistent
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Instance '<WorkflowRoles at 0x1d7031e52e0>' is not persistent within this Session
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: (psycopg2.errors.NotNullViolation) null value in column "role_id" of relation "workflowroles" violates not-null constraint
+DETAIL:  Failing row contains (null, null, null, f, null, 5, 10, null, null, null, null, null).
+
+[SQL: INSERT INTO workflowroles (rolename, description, status, type, min_users, max_users, current_users, created_at, created_by, modified_at, modified_by) VALUES (%(rolename)s, %(description)s, %(status)s, %(type)s, %(min_users)s, %(max_users)s, %(current_users)s, %(created_at)s, %(created_by)s, %(modified_at)s, %(modified_by)s)]
+[parameters: {'rolename': None, 'description': None, 'status': False, 'type': None, 'min_users': 5, 'max_users': 10, 'current_users': None, 'created_at': None, 'created_by': None, 'modified_at': None, 'modified_by': None}]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "role_id" of relation "workflowroles" violates not-null constraint
+DETAIL:  Failing row contains (null, null, null, f, null, 5, 10, null, null, null, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 55, in RoleThreshhold
+    db.commit()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "role_id" of relation "workflowroles" violates not-null constraint
+DETAIL:  Failing row contains (null, null, null, f, null, 5, 10, null, null, null, null, null).
+
+[SQL: INSERT INTO workflowroles (rolename, description, status, type, min_users, max_users, current_users, created_at, created_by, modified_at, modified_by) VALUES (%(rolename)s, %(description)s, %(status)s, %(type)s, %(min_users)s, %(max_users)s, %(current_users)s, %(created_at)s, %(created_by)s, %(modified_at)s, %(modified_by)s)]
+[parameters: {'rolename': None, 'description': None, 'status': False, 'type': None, 'min_users': 5, 'max_users': 10, 'current_users': None, 'created_at': None, 'created_by': None, 'modified_at': None, 'modified_by': None}]
+(Background on this error at: http://sqlalche.me/e/14/gkpj)
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: local variable 'value' referenced before assignment
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 51, in RoleThreshhold
+    setattr(db_role, 'max_users', 10) if value != None else None
+UnboundLocalError: local variable 'value' referenced before assignment
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'WorkflowRoles' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(vars(threshhold))
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1637, in execute
+    ) = compile_state_cls.orm_pre_session_exec(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1815, in orm_pre_session_exec
+    update_options = cls._do_pre_synchronize_evaluate(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1961, in _do_pre_synchronize_evaluate
+    resolved_values = cls._get_resolved_values(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 2016, in _get_resolved_values
+    desc = _entity_namespace_key(mapper, k)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'WorkflowRoles' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in RoleThreshhold
+    db_role = db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(vars(threshhold))
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1637, in execute
+    ) = compile_state_cls.orm_pre_session_exec(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1815, in orm_pre_session_exec
+    update_options = cls._do_pre_synchronize_evaluate(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1961, in _do_pre_synchronize_evaluate
+    resolved_values = cls._get_resolved_values(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 2016, in _get_resolved_values
+    desc = _entity_namespace_key(mapper, k)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+ERROR:grpc._server:Exception calling application: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'WorkflowRoles' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in RoleThreshhold
+    db_role = db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(vars(threshhold))
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1637, in execute
+    ) = compile_state_cls.orm_pre_session_exec(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1815, in orm_pre_session_exec
+    update_options = cls._do_pre_synchronize_evaluate(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1961, in _do_pre_synchronize_evaluate
+    resolved_values = cls._get_resolved_values(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 2016, in _get_resolved_values
+    desc = _entity_namespace_key(mapper, k)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+ERROR:grpc._server:Exception calling application: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'WorkflowRoles' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in RoleThreshhold
+    db_role = db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(vars(threshhold))
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1637, in execute
+    ) = compile_state_cls.orm_pre_session_exec(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1815, in orm_pre_session_exec
+    update_options = cls._do_pre_synchronize_evaluate(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1961, in _do_pre_synchronize_evaluate
+    resolved_values = cls._get_resolved_values(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 2016, in _get_resolved_values
+    desc = _entity_namespace_key(mapper, k)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'WorkflowRoles' has no attribute 'update'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 60, in RoleThreshhold
+    update_statement = model.WorkflowRoles.update().where(model.WorkflowRoles.rolename == request.rolename).values(min_users = 34)
+AttributeError: type object 'WorkflowRoles' has no attribute 'update'
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'dict' object
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 62, in RoleThreshhold
+    return workflow_pb2.StatusResponse('success')
+TypeError: No positional arguments allowed
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'WorkflowRoles' has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 49, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(vars(threshhold))
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1637, in execute
+    ) = compile_state_cls.orm_pre_session_exec(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1815, in orm_pre_session_exec
+    update_options = cls._do_pre_synchronize_evaluate(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1961, in _do_pre_synchronize_evaluate
+    resolved_values = cls._get_resolved_values(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 2016, in _get_resolved_values
+    desc = _entity_namespace_key(mapper, k)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "mapped class WorkflowRoles->workflowroles" has no property "_sa_instance_state"
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object has no attribute 'todict'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 51, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(threshhold.todict())
+AttributeError: 'WorkflowRoles' object has no attribute 'todict'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: (psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type timestamp: "Hello"
+LINE 1: ...'23', 'xyz', 'Hello', false, 0, NULL, NULL, NULL, 'Hello', '...
+                                                             ^
+
+[SQL: INSERT INTO workflowroles (role_id, rolename, description, status, type, min_users, max_users, current_users, created_at, created_by, modified_at, modified_by) VALUES (%(role_id)s, %(rolename)s, %(description)s, %(status)s, %(type)s, %(min_users)s, %(max_users)s, %(current_users)s, %(created_at)s, %(created_by)s, %(modified_at)s, %(modified_by)s)]
+[parameters: {'role_id': '23', 'rolename': 'xyz', 'description': 'Hello', 'status': False, 'type': 0, 'min_users': None, 'max_users': None, 'current_users': None, 'created_at': 'Hello', 'created_by': 'Hello', 'modified_at': 'Hello', 'modified_by': 'Hello'}]
+(Background on this error at: http://sqlalche.me/e/14/9h9h)
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidDatetimeFormat: invalid input syntax for type timestamp: "Hello"
+LINE 1: ...'23', 'xyz', 'Hello', false, 0, NULL, NULL, NULL, 'Hello', '...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 42, in CreateRole
+    db.commit()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3298, in flush
+    self._flush(objects)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3438, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3398, in _flush
+    flush_context.execute()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1094, in _emit_insert_statements
+    c = connection._execute_20(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type timestamp: "Hello"
+LINE 1: ...'23', 'xyz', 'Hello', false, 0, NULL, NULL, NULL, 'Hello', '...
+                                                             ^
+
+[SQL: INSERT INTO workflowroles (role_id, rolename, description, status, type, min_users, max_users, current_users, created_at, created_by, modified_at, modified_by) VALUES (%(role_id)s, %(rolename)s, %(description)s, %(status)s, %(type)s, %(min_users)s, %(max_users)s, %(current_users)s, %(created_at)s, %(created_by)s, %(modified_at)s, %(modified_by)s)]
+[parameters: {'role_id': '23', 'rolename': 'xyz', 'description': 'Hello', 'status': False, 'type': 0, 'min_users': None, 'max_users': None, 'current_users': None, 'created_at': 'Hello', 'created_by': 'Hello', 'modified_at': 'Hello', 'modified_by': 'Hello'}]
+(Background on this error at: http://sqlalche.me/e/14/9h9h)
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object has no attribute 'todict'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 50, in RoleThreshhold
+    dict1 = threshhold.todict()
+AttributeError: 'WorkflowRoles' object has no attribute 'todict'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object has no attribute 'to_dict'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 50, in RoleThreshhold
+    dict1 = threshhold.to_dict()
+AttributeError: 'WorkflowRoles' object has no attribute 'to_dict'
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object has no attribute 'to_dict'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 50, in RoleThreshhold
+    dict1 = threshhold.to_dict()
+AttributeError: 'WorkflowRoles' object has no attribute 'to_dict'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: name 'dict1' is not defined
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 56, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(dict1)
+NameError: name 'dict1' is not defined
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: 'None'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 56, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(d)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1676, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+ERROR:grpc._server:Exception calling application: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: 'None'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 56, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(d)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1676, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+ERROR:grpc._server:Exception calling application: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: 'None'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 56, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(d)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3219, in update
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1676, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1670, in _execute_context
+    context = constructor(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1073, in _init_compiled
+    param = {
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 1074, in <dictcomp>
+    key: processors[key](compiled_params[key])
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1983, in process
+    value = _strict_as_bool(value)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1958, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: 'None'
+[SQL: UPDATE workflowroles SET role_id=%(role_id)s, rolename=%(rolename)s, description=%(description)s, status=%(status)s, type=%(type)s, min_users=%(min_users)s, max_users=%(max_users)s, current_users=%(current_users)s, created_at=%(created_at)s, created_by=%(created_by)s, modified_at=%(modified_at)s, modified_by=%(modified_by)s WHERE workflowroles.rolename = %(rolename_1)s]
+[parameters: [{}]]
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: name 'd' is not defined
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 61, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(d)
+NameError: name 'd' is not defined
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'WorkflowRoles' has no attribute 'query'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 61, in RoleThreshhold
+    db_role = model.WorkflowRoles.query.filter_by(model.WorkflowRoles.rolename == request.rolename).first()
+AttributeError: type object 'WorkflowRoles' has no attribute 'query'
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'int' object has no attribute 'min_users'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 64, in RoleThreshhold
+    db_role.min_users = 20
+AttributeError: 'int' object has no attribute 'min_users'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'Query' object has no attribute 'min_users'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 65, in RoleThreshhold
+    print(db_role.min_users)
+AttributeError: 'Query' object has no attribute 'min_users'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'InstanceState' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(temp)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3214, in update
+    upd = upd.values(values)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 104, in _generative
+    x = fn(self, *args, **kw)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 133, in check
+    return fn(self, *args, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\dml.py", line 698, in values
+    for k, v in arg.items()
+AttributeError: 'InstanceState' object has no attribute 'items'
+ERROR:grpc._server:Exception calling application: 'InstanceState' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in RoleThreshhold
+    # db_role = workflowroles.query.filter_by(model.WorkflowRoles.rolename == request.rolename).first()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3214, in update
+    upd = upd.values(values)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 104, in _generative
+    x = fn(self, *args, **kw)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 133, in check
+    return fn(self, *args, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\dml.py", line 698, in values
+    for k, v in arg.items()
+AttributeError: 'InstanceState' object has no attribute 'items'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'InstanceState' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 55, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(temp)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3214, in update
+    upd = upd.values(values)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 104, in _generative
+    x = fn(self, *args, **kw)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 133, in check
+    return fn(self, *args, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\dml.py", line 698, in values
+    for k, v in arg.items()
+AttributeError: 'InstanceState' object has no attribute 'items'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'InstanceState' object has no attribute 'items'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 55, in RoleThreshhold
+    db.query(model.WorkflowRoles).filter(model.WorkflowRoles.rolename == request.rolename).update(temp)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3214, in update
+    upd = upd.values(values)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 104, in _generative
+    x = fn(self, *args, **kw)
+  File "<string>", line 2, in values
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 133, in check
+    return fn(self, *args, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\dml.py", line 698, in values
+    for k, v in arg.items()
+AttributeError: 'InstanceState' object has no attribute 'items'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: AttributeError("'generator' object has no attribute 'add'") has type AttributeError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 30, in CreateRole
+    return workflow_pb2.StatusResponse(message = xyz)
+TypeError: AttributeError("'generator' object has no attribute 'add'") has type AttributeError, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: AttributeError("'generator' object has no attribute 'add'") has type AttributeError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 30, in CreateRole
+    return workflow_pb2.StatusResponse(message = xyz)
+TypeError: AttributeError("'generator' object has no attribute 'add'") has type AttributeError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', InvalidRequestError("Instance '<WorkflowRoles at 0x13786f6d490>' is not persistent wi has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 31, in RoleThreshhold
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', InvalidRequestError("Instance '<WorkflowRoles at 0x13786f6d490>' is not persistent wi has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: DataError('(psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type timestamp: "Hello"\ has type DataError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 23, in CreateRole
+    return workflow_pb2.StatusResponse(message = result)
+TypeError: DataError('(psycopg2.errors.InvalidDatetimeFormat) invalid input syntax for type timestamp: "Hello"\ has type DataError, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 23, in CreateRole
+    return workflow_pb2.StatusResponse(message = result)
+TypeError: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: rolename
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.rolename)
+AttributeError: rolename
+ERROR:grpc._server:Exception calling application: rolename
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.rolename)
+AttributeError: rolename
+ERROR:grpc._server:Exception calling application: rolename
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.rolename)
+AttributeError: rolename
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 34, in check_if_role_exists
+    if rolename.rolename:
+AttributeError: 'str' object has no attribute 'rolename'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 34, in check_if_role_exists
+    if rolename.rolename:
+AttributeError: 'str' object has no attribute 'rolename'
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 34, in check_if_role_exists
+    if rolename.rolename:
+AttributeError: 'str' object has no attribute 'rolename'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 35, in check_if_role_exists
+    if rolename.rolename:
+AttributeError: 'str' object has no attribute 'rolename'
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    print(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 35, in check_if_role_exists
+    def check_if_role_exists(rolename: model.WorkflowRoles):
+AttributeError: 'str' object has no attribute 'rolename'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'str' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 8, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 36, in check_if_role_exists
+    if rolename.rolename:
+AttributeError: 'str' object has no attribute 'rolename'
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Operator 'contains' is not supported on this expression
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 34, in check_if_role_exists
+    if rolename.rolename in model.WorkflowRoles.rolename:
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 316, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 430, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 813, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 76, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 177, in _unsupported_impl
+    raise NotImplementedError(
+NotImplementedError: Operator 'contains' is not supported on this expression
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Operator 'contains' is not supported on this expression
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 35, in check_if_role_exists
+    if rolename.rolename in model.WorkflowRoles.rolename:
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 316, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\properties.py", line 430, in operate
+    return op(self.__clause_element__(), *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 813, in operate
+    return op(self.comparator, *other, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 425, in __contains__
+    return self.operate(contains, other)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\type_api.py", line 76, in operate
+    return o[0](self.expr, op, *(other + o[1:]), **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\default_comparator.py", line 177, in _unsupported_impl
+    raise NotImplementedError(
+NotImplementedError: Operator 'contains' is not supported on this expression
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'WorkflowRoles' has no attribute 'query'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 22, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 7, in create_role
+    check_role = check_if_role_exists(request.roledetails.rolename)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 34, in check_if_role_exists
+    bool(model.WorkflowRoles.query.filter_by(rolename=rolename).first())
+AttributeError: type object 'WorkflowRoles' has no attribute 'query'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 23, in CreateRole
+    return workflow_pb2.StatusResponse(message = result)
+TypeError: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 23, in CreateRole
+    return workflow_pb2.StatusResponse(message = result)
+TypeError: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 23, in CreateRole
+    return workflow_pb2.StatusResponse(message = result)
+TypeError: IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "wo has type IntegrityError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', AttributeError('rolename')) has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 33, in UpdateRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', AttributeError('rolename')) has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: roledetails
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 37, in GetRole
+    result = crud.get_role_details(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 54, in get_role_details
+    check_role = check_if_role_exists(db, request.roledetails.rolename)
+AttributeError: roledetails
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Protocol message RoleDetails has no "rolestatus" field.
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(roleid=result[0], rolename=result[1], rolestatus=result[2], roletype= result[3], desc=result[4], currentusers = result[5])
+ValueError: Protocol message RoleDetails has no "rolestatus" field.
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: unknown enum label "l"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(roleid=result[0], rolename=result[1], status=result[2], roletype= result[3], desc=result[4], currentusers = result[5])
+ValueError: unknown enum label "l"
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'd' has type str, but expected one of: int
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(roleid=result[0], rolename=result[1], status=result[2], roletype= result[3], desc=result[4], currentusers = result[5])
+TypeError: 'd' has type str, but expected one of: int
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: False has type bool, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 38, in GetRole
+    return workflow_pb2.RoleDetails(roleid=result[0], rolename=result[1], status=result[2], roletype= result[3], desc=result[4], currentusers = result[5])
+TypeError: False has type bool, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception', TypeError("filter() got an unexpected keyword argument 'role_id'")) has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 48, in DeleteRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception', TypeError("filter() got an unexpected keyword argument 'role_id'")) has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Method not implemented!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\workflow_pb2_grpc.py", line 103, in GetRoleThreshold
+    raise NotImplementedError('Method not implemented!')
+NotImplementedError: Method not implemented!
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: module 'workflow_pb2' has no attribute 'RoleThresholdDetails'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThresholdDetails(result)
+AttributeError: module 'workflow_pb2' has no attribute 'RoleThresholdDetails'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(result)
+TypeError: No positional arguments allowed
+ERROR:grpc._server:Exception calling application: type object 'WorkflowRoles' has no attribute 'desc'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in GetRoleThreshold
+    result = crud.get_rolethreshold_by_id(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 116, in get_rolethreshold_by_id
+    model.WorkflowRoles.desc, model.WorkflowRoles.status).filter_by(role_id=request.roleid).first()
+AttributeError: type object 'WorkflowRoles' has no attribute 'desc'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 54, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No positional arguments allowed
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(result)
+TypeError: No positional arguments allowed
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: False has type bool, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(rolename=result[0], minusers = result[1],
+TypeError: False has type bool, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(rolename=result[0], minusers = result[1],
+TypeError: 'WorkflowRoles' object is not subscriptable
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'WorkflowRoles' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 53, in GetRoleThreshold
+    return workflow_pb2.RoleThreshold(rolename=result[0], minusers = result[1],
+TypeError: 'WorkflowRoles' object is not subscriptable
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: name 'role_threshold' is not defined
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 52, in GetRoleThreshold
+    result = crud.get_rolethreshold_by_id(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 123, in get_rolethreshold_by_id
+    print(role_threshold)
+NameError: name 'role_threshold' is not defined
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Hello1',) has type Row, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 59, in GetRoleNames
+    return workflow_pb2.RoleNames(rolenames=result)
+TypeError: ('Hello1',) has type Row, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: rolenames: "Hello1"
+ has type RoleNames, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 59, in GetRoleNames
+    return workflow_pb2.RoleNames(rolenames=result)
+TypeError: rolenames: "Hello1"
+ has type RoleNames, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute 'rolename'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [i for i in rolenames.rolename]
+AttributeError: 'list' object has no attribute 'rolename'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'rolenames' is an invalid keyword argument for str()
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [str(rolenames = i) for i in rolenames]
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in <listcomp>
+    xyz = [str(rolenames = i) for i in rolenames]
+TypeError: 'rolenames' is an invalid keyword argument for str()
+ERROR:grpc._server:Exception calling application: 'rolenames' is an invalid keyword argument for str()
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [str(rolenames = i) for i in rolenames]
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in <listcomp>
+    xyz = [str(rolenames = i) for i in rolenames]
+TypeError: 'rolenames' is an invalid keyword argument for str()
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'rolenames' is an invalid keyword argument for str()
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [str(rolenames = i) for i in rolenames]
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in <listcomp>
+    xyz = [str(rolenames = i) for i in rolenames]
+TypeError: 'rolenames' is an invalid keyword argument for str()
+ERROR:grpc._server:Exception calling application: 'rolenames' is an invalid keyword argument for str()
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [str(rolenames = i) for i in rolenames]
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in <listcomp>
+    xyz = [str(rolenames = i) for i in rolenames]
+TypeError: 'rolenames' is an invalid keyword argument for str()
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'rolenames' is an invalid keyword argument for str()
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 58, in GetRoleNames
+    result = crud.get_all_role_names(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in get_all_role_names
+    xyz = [str(rolenames = i) for i in rolenames]
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 128, in <listcomp>
+    xyz = [str(rolenames = i) for i in rolenames]
+TypeError: 'rolenames' is an invalid keyword argument for str()
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Method not implemented!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\workflow_pb2_grpc.py", line 144, in GetAllRoleThreshold
+    raise NotImplementedError('Method not implemented!')
+NotImplementedError: Method not implemented!
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Protocol message RoleThreshold has no "minuser" field.
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 63, in GetAllRoleThreshold
+    result = crud.get_all_role_threshold(db)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 140, in get_all_role_threshold
+    roles = [workflow_pb2.RoleThreshold(rolename=i[0], minuser=i[1], maxusers=i[2], description=i[3], status=i[4])
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 140, in <listcomp>
+    roles = [workflow_pb2.RoleThreshold(rolename=i[0], minuser=i[1], maxusers=i[2], description=i[3], status=i[4])
+ValueError: Protocol message RoleThreshold has no "minuser" field.
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: module 'crud' has no attribute 'assign_role_to_users'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_users(db, request)
+AttributeError: module 'crud' has no attribute 'assign_role_to_users'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: roledetails
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 146, in assign_role_to_user
+    role_id=request.roledetails.rolename,
+AttributeError: roledetails
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', ArgumentError("Column type VARCHAR on column 'user_roles.id' is not compatible with a has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 74, in AssignRoletoUser
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', ArgumentError("Column type VARCHAR on column 'user_roles.id' is not compatible with a has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', ArgumentError("Column type VARCHAR on column 'user_roles.id' is not compatible with a has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 74, in AssignRoletoUser
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', ArgumentError("Column type VARCHAR on column 'user_roles.id' is not compatible with a has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Entity namespace for "users" has no property "role_id"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'Users' has no attribute 'role_id'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 145, in assign_role_to_user
+    check_user = check_if_user_exists(db, request.user_id)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 165, in check_if_user_exists
+    return bool(db.query(model.Users).filter_by(role_id=userid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1751, in filter_by
+    clauses = [
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1752, in <listcomp>
+    _entity_namespace_key(from_entity, key) == value
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "users" has no property "role_id"
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Multiple rows were found when exactly one was required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 150, in assign_role_to_user
+    role_to_user_group = check_if_role_assigned_to_user_group(db, request.role_id, request.user_id)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 169, in check_if_role_assigned_to_user_group
+    role_assigned = check_if_role_assigned(db, roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 180, in check_if_role_assigned
+    return bool(db.query(model.UserRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 1365, in one
+    return self._only_one_row(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 613, in _only_one_row
+    raise exc.MultipleResultsFound(
+sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when exactly one was required
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: roleid
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 150, in assign_role_to_user
+    role_assigned_or_not = check_if_role_assigned(db, request.roleid)
+AttributeError: roleid
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Method not implemented!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\workflow_pb2_grpc.py", line 168, in AssignRoletoUserGroup
+    raise NotImplementedError('Method not implemented!')
+NotImplementedError: Method not implemented!
+ERROR:grpc._server:Exception calling application: Method not implemented!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\workflow_pb2_grpc.py", line 168, in AssignRoletoUserGroup
+    raise NotImplementedError('Method not implemented!')
+NotImplementedError: Method not implemented!
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: user_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 78, in AssignRoletoUserGroup
+    result = crud.assign_role_to_user_group(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 185, in assign_role_to_user_group
+    check_user = check_if_user_group_exists(db, request.user_id)
+AttributeError: user_id
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: group_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 78, in AssignRoletoUserGroup
+    result = crud.assign_role_to_user_group(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 185, in assign_role_to_user_group
+    check_user = check_if_user_group_exists(db, request.group_id)
+AttributeError: group_id
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: group_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 78, in AssignRoletoUserGroup
+    result = crud.assign_role_to_user_group(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 195, in assign_role_to_user_group
+    group_id=request.group_id
+AttributeError: group_id
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: name 'check_if_user_exists' is not defined
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 73, in AssignRoletoUser
+    result = crud.assign_role_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 143, in assign_role_to_user
+    check_user = check_if_user_exists(db, request.user_id)
+NameError: name 'check_if_user_exists' is not defined
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: attriute_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 83, in AssignAttributestoUser
+    result = crud.assign_attribute_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 203, in assign_attribute_to_user
+    attribute_id=request.attriute_id
+AttributeError: attriute_id
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'attribute_id' is an invalid keyword argument for UserRoles
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 83, in AssignAttributestoUser
+    result = crud.assign_attribute_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 201, in assign_attribute_to_user
+    user_attribute = model.UserRoles(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'attribute_id' is an invalid keyword argument for UserRoles
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'user_id' is an invalid keyword argument for Attributes
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 83, in AssignAttributestoUser
+    result = crud.assign_attribute_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 201, in assign_attribute_to_user
+    user_attribute = model.Attributes(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'user_id' is an invalid keyword argument for Attributes
+INFO:root:Server started
+ERROR:grpc._common:Exception serializing message!
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_common.py", line 86, in _transform
+    return transformer(message)
+TypeError: descriptor 'SerializeToString' for 'google.protobuf.pyext._message.CMessage' objects doesn't apply to a 'NoneType' object
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: attribute_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 88, in AssignAttributeGroupstoUser
+    result = crud.assign_attribute_group_to_user(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 224, in assign_attribute_group_to_user
+    attribute_group_id=request.attribute_id
+AttributeError: attribute_id
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', ProgrammingError('(psycopg2.errors.UndefinedColumn) column "id" of relation "user_att has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 89, in AssignAttributeGroupstoUser
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', ProgrammingError('(psycopg2.errors.UndefinedColumn) column "id" of relation "user_att has type tuple, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: ('Exception:', ProgrammingError('(psycopg2.errors.UndefinedColumn) column "id" of relation "user_att has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 89, in AssignAttributeGroupstoUser
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', ProgrammingError('(psycopg2.errors.UndefinedColumn) column "id" of relation "user_att has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Multiple rows were found when exactly one was required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 47, in DeleteRole
+    result = crud.delete_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 79, in delete_role
+    role_to_user = check.check_if_role_assigned(db, request.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 24, in check_if_role_assigned
+    return bool(db.query(model.UserRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 1365, in one
+    return self._only_one_row(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 613, in _only_one_row
+    raise exc.MultipleResultsFound(
+sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when exactly one was required
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'UserRoles' object has no attribute 'scalar'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 47, in DeleteRole
+    result = crud.delete_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 79, in delete_role
+    role_to_user = check.check_if_role_assigned(db, request.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 24, in check_if_role_assigned
+    return bool(db.query(model.UserRoles).filter_by(role_id=roleid).first().scalar())
+AttributeError: 'UserRoles' object has no attribute 'scalar'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Multiple rows were found when exactly one was required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 47, in DeleteRole
+    result = crud.delete_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 79, in delete_role
+    role_to_user = check.check_if_role_assigned(db, request.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 24, in check_if_role_assigned
+    return bool(db.query(model.UserRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 1365, in one
+    return self._only_one_row(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 613, in _only_one_row
+    raise exc.MultipleResultsFound(
+sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when exactly one was required
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('Exception:', IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 33, in UpdateRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique has type tuple, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: ('Exception:', IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique has type tuple, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 33, in UpdateRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('Exception:', IntegrityError('(psycopg2.errors.UniqueViolation) duplicate key value violates unique has type tuple, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: AttributeError('role_id') has type AttributeError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 97, in AssignPermissionToRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: AttributeError('role_id') has type AttributeError, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.NotNullViolation) null value in column "id" of relation "role_permi has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 97, in AssignPermissionToRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: IntegrityError('(psycopg2.errors.NotNullViolation) null value in column "id" of relation "role_permi has type IntegrityError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: View
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 96, in AssignPermissionToRole
+    result = crud.assign_permission_to_role_add_all(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 245, in assign_permission_to_role_add_all
+    view = per.View,
+AttributeError: View
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: View
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 96, in AssignPermissionToRole
+    result = crud.assign_permission_to_role_add_all(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 241, in assign_permission_to_role_add_all
+    print(per.View)
+AttributeError: View
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: View
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 96, in AssignPermissionToRole
+    result = crud.assign_permission_to_role_add_all(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 241, in assign_permission_to_role_add_all
+    print(per.View)
+AttributeError: View
+ERROR:grpc._server:Exception calling application: View
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 96, in AssignPermissionToRole
+    result = crud.assign_permission_to_role_add_all(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 241, in assign_permission_to_role_add_all
+    print(per.View)
+AttributeError: View
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: AttributeError("type object 'RolePermissions' has no attribute 'insert'") has type AttributeError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 97, in AssignPermissionToRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: AttributeError("type object 'RolePermissions' has no attribute 'insert'") has type AttributeError, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 25, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 14, in create_role
+    check_role = check.check_if_role_exists(db, request.roledetails.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 5, in check_if_role_exists
+    return bool(db.query(model.WorkflowRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+ERROR:grpc._server:Exception calling application: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 25, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 14, in create_role
+    check_role = check.check_if_role_exists(db, request.roledetails.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 5, in check_if_role_exists
+    return bool(db.query(model.WorkflowRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+ERROR:grpc._server:Exception calling application: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 25, in CreateRole
+    result = crud.create_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 14, in create_role
+    check_role = check.check_if_role_exists(db, request.roledetails.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 5, in check_if_role_exists
+    return bool(db.query(model.WorkflowRoles).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column workflowroles.extra does not exist
+LINE 1: ...owroles.modified_by AS workflowroles_modified_by, workflowro...
+                                                             ^
+
+[SQL: SELECT workflowroles.role_id AS workflowroles_role_id, workflowroles.rolename AS workflowroles_rolename, workflowroles.description AS workflowroles_description, workflowroles.status AS workflowroles_status, workflowroles.type AS workflowroles_type, workflowroles.min_users AS workflowroles_min_users, workflowroles.max_users AS workflowroles_max_users, workflowroles.current_users AS workflowroles_current_users, workflowroles.created_at AS workflowroles_created_at, workflowroles.created_by AS workflowroles_created_by, workflowroles.modified_at AS workflowroles_modified_at, workflowroles.modified_by AS workflowroles_modified_by, workflowroles.extra AS workflowroles_extra, workflowroles.extra2 AS workflowroles_extra2 
+FROM workflowroles 
+WHERE workflowroles.role_id = %(role_id_1)s]
+[parameters: {'role_id_1': 'R_200'}]
+(Background on this error at: http://sqlalche.me/e/14/f405)
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Entity namespace for "permissions.permission_id" has no property "modlue"
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1669, in _entity_namespace_key
+    return getattr(ns, key)
+AttributeError: type object 'Permissions' has no attribute 'modlue'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 280, in assign_permission_to_role
+    id = get_permission_id(db, 'Master', 'Reference', 'create')
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 288, in get_permission_id
+    id = db.query(model.Permissions.permission_id).filter_by(modlue=module, submodule=submodule, action=action).first()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1751, in filter_by
+    clauses = [
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1752, in <listcomp>
+    _entity_namespace_key(from_entity, key) == value
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 1671, in _entity_namespace_key
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "permissions.permission_id" has no property "modlue"
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ('804',) has type Row, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 108, in AssignPermissionToRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ('804',) has type Row, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'dict' object has no attribute 'permission_id'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 281, in assign_permission_to_role
+    return id.permission_id
+AttributeError: 'dict' object has no attribute 'permission_id'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'role_id' is an invalid keyword argument for Permissions
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 280, in assign_permission_to_role
+    permission = model.Permissions(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'role_id' is an invalid keyword argument for Permissions
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'role_id' is an invalid keyword argument for Permissions
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 283, in assign_permission_to_role
+    permission = model.Permissions(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'role_id' is an invalid keyword argument for Permissions
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'role_id' is an invalid keyword argument for Permissions
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 281, in assign_permission_to_role
+    permission = model.Permissions(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'role_id' is an invalid keyword argument for Permissions
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'role_id' is an invalid keyword argument for Permissions
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 279, in assign_permission_to_role
+    permission = model.Permissions(
+  File "<string>", line 4, in __init__
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 480, in _initialize_instance
+    manager.dispatch.init_failure(self, args, kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\state.py", line 477, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+TypeError: 'role_id' is an invalid keyword argument for Permissions
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: No row was found when one was required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 281, in assign_permission_to_role
+    permissions=get_permission_id(db, per.module, per.submodule, a.action),
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 297, in get_permission_id
+    id = db.query(model.Permissions.permission_id).filter_by(module=module, submodule=submodule, action=action).one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 1148, in one
+    return self._only_one_row(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 561, in _only_one_row
+    raise exc.NoResultFound(
+sqlalchemy.exc.NoResultFound: No row was found when one was required
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 281, in assign_permission_to_role
+    permissions=get_permission_id(db, per.module, per.submodule, a.action),
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 298, in get_permission_id
+    return id[0]
+TypeError: 'NoneType' object is not subscriptable
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 279, in assign_permission_to_role
+    print(get_permission_id(db, per.module, per.submodule, a.action))
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 299, in get_permission_id
+    return id[0]
+TypeError: 'NoneType' object is not subscriptable
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 279, in assign_permission_to_role
+    print(get_permission_id(db, per.module, per.submodule, a.action))
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 299, in get_permission_id
+    return id[0]
+TypeError: 'NoneType' object is not subscriptable
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'Query' object has no attribute 'leftjoin'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 305, in get_role_permissions
+    rolepermission = db.query(model.Permissions.module, model.Permissions.submodule, model.Permissions.action,
+AttributeError: 'Query' object has no attribute 'leftjoin'
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: dictionary update sequence element #0 has length 4; 2 is required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    print(dict(rolepermission))
+ValueError: dictionary update sequence element #0 has length 4; 2 is required
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute '__dict__'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    print(**rolepermission.__dict__)
+AttributeError: 'list' object has no attribute '__dict__'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute '__dict__'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    print(dict(rolepermission.__dict__))
+AttributeError: 'list' object has no attribute '__dict__'
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute '__dict__'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    print(dict(rolepermission.__dict__))
+AttributeError: 'list' object has no attribute '__dict__'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute 'keys'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 309, in get_role_permissions
+    rolepermission_dict = dict(zip(rolepermission.keys(), rolepermission))
+AttributeError: 'list' object has no attribute 'keys'
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute 'keys'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 309, in get_role_permissions
+AttributeError: 'list' object has no attribute 'keys'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'Permissions' has no attribute 'actions'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    result = get_actions(db, request.roleid, 'Master', 'Product')
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 314, in get_actions
+    def get_actions(db: Session, roleid: str, module: str, submodule: str):
+AttributeError: type object 'Permissions' has no attribute 'actions'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'Permissions' has no attribute 'actions'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    result = get_actions(db, request.roleid, 'Master', 'Product')
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 315, in get_actions
+    actions = db.query(model.Permissions.actions, model.RolePermissions.is_true).join(model.Permissions, model.RolePermissions.permissions == model.Permissions.permission_id).filter(
+AttributeError: type object 'Permissions' has no attribute 'actions'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'Permissions' has no attribute 'actions'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    result = get_actions(db, request.roleid, 'Master', 'Product')
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 315, in get_actions
+    actions = db.query(model.Permissions.actions, model.RolePermissions.is_true).join(model.Permissions, model.RolePermissions.permissions == model.Permissions.permission_id).filter(
+AttributeError: type object 'Permissions' has no attribute 'actions'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: type object 'Permissions' has no attribute 'actions'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    result = get_actions(db, request.roleid, 'Master', 'Product')
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 315, in get_actions
+    actions = db.query(model.Permissions.actions, model.RolePermissions.is_true).join(model.Permissions, model.RolePermissions.permissions == model.Permissions.permission_id).filter(
+AttributeError: type object 'Permissions' has no attribute 'actions'
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Parameter to MergeFrom() must be instance of same class: expected RolePermissions.Permissions got RolePermissions.Actions.
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(permissions = result)
+TypeError: Parameter to MergeFrom() must be instance of same class: expected RolePermissions.Permissions got RolePermissions.Actions.
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Value must be iterable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(permissions = result)
+TypeError: Value must be iterable
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Value must be iterable
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(permissions = result)
+TypeError: Value must be iterable
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Don't know how to join to <Mapper at 0x174be81d7f0; Permissions>. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db,request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 308, in get_role_permissions
+    for i in modules:
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2837, in __iter__
+    return self._iter().__iter__()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2844, in _iter
+    result = self.session.execute(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1689, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 323, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1443, in _execute_clauseelement
+    compiled_sql, extracted_params, cache_hit = elem._compile_w_cache(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 518, in _compile_w_cache
+    compiled_sql = self._compiler(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 553, in _compiler
+    return dialect.statement_compiler(dialect, self, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\compiler.py", line 766, in __init__
+    Compiled.__init__(self, dialect, statement, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\compiler.py", line 455, in __init__
+    self.string = self.process(self.statement, **compile_kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\compiler.py", line 490, in process
+    return obj._compiler_dispatch(self, **kwargs)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\visitors.py", line 82, in _compiler_dispatch
+    return meth(self, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\compiler.py", line 3011, in visit_select
+    compile_state = select_stmt._compile_state_factory(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\sql\base.py", line 500, in create_for_statement
+    return klass.create_for_statement(statement, compiler, **kw)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\context.py", line 656, in create_for_statement
+    self._setup_for_generate()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\context.py", line 687, in _setup_for_generate
+    self._legacy_join(query._legacy_setup_joins, self._entities)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\context.py", line 1534, in _legacy_join
+    self._join_left_to_right(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\context.py", line 1576, in _join_left_to_right
+    ) = self._join_determine_implicit_left_side(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\context.py", line 1740, in _join_determine_implicit_left_side
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Don't know how to join to <Mapper at 0x174be81d7f0; Permissions>. Please use the .select_from() method to establish an explicit left side, as well as providing an explicit ON clause if not present already to help resolve the ambiguity.
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'dict' object has no attribute 'role_id'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(roleid=result.role_id, createdby=result.created_by, permissions=result.permissions)
+AttributeError: 'dict' object has no attribute 'role_id'
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'dict' object has no attribute 'roleid'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(roleid=result.roleid, createdby=result.created_by, permissions=result.permissions)
+AttributeError: 'dict' object has no attribute 'roleid'
+ERROR:grpc._server:Exception calling application: 'dict' object has no attribute 'roleid'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(roleid=result.roleid, createdby=result.created_by, permissions=result.permissions)
+AttributeError: 'dict' object has no attribute 'roleid'
+ERROR:grpc._server:Exception calling application: 'dict' object has no attribute 'roleid'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 113, in GetRolePermissions
+    return workflow_pb2.RolePermissions(roleid=result.roleid, createdby=result.created_by, permissions=result.permissions)
+AttributeError: 'dict' object has no attribute 'roleid'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: list index out of range
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 112, in GetRolePermissions
+    result = crud.get_role_permissions(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 310, in get_role_permissions
+    result['created_by'] = modules[0][2]
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2593, in __getitem__
+    return orm_util._getitem(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\util.py", line 1990, in _getitem
+    return list(iterable_query[item : item + 1])[0]
+IndexError: list index out of range
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: role_id
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 276, in assign_permission_to_role
+    check_role_permissions = check.check_if_permission_assigned_to_role(db, request.role_id)
+AttributeError: role_id
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Multiple rows were found when exactly one was required
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 107, in AssignPermissionToRole
+    result = crud.assign_permission_to_role(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 276, in assign_permission_to_role
+    check_role_permissions = check.check_if_permission_assigned_to_role(db, request.roleid)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\check.py", line 40, in check_if_permission_assigned_to_role
+    return bool(db.query(model.RolePermissions).filter_by(role_id=roleid).scalar())
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2829, in scalar
+    ret = self.one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2806, in one
+    return self._iter().one()
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 1365, in one
+    return self._only_one_row(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\engine\result.py", line 613, in _only_one_row
+    raise exc.MultipleResultsFound(
+sqlalchemy.exc.MultipleResultsFound: Multiple rows were found when exactly one was required
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 123, in DeleteRolePermissions
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 123, in DeleteRolePermissions
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+ERROR:grpc._server:Exception calling application: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 123, in DeleteRolePermissions
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: UnmappedInstanceError("Class 'builtins.list' is not mapped") has type UnmappedInstanceError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: ResourceClosedError('This result object does not return rows. It has been closed automatically.') has type ResourceClosedError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 123, in DeleteRolePermissions
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: ResourceClosedError('This result object does not return rows. It has been closed automatically.') has type ResourceClosedError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: Class 'builtins.list' is not mapped
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2604, in delete
+    state = attributes.instance_state(instance)
+AttributeError: 'list' object has no attribute '_sa_instance_state'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:/VinculumSolution/PIM_WORKFLOW/workflow/main.py", line 122, in DeleteRolePermissions
+    result = crud.delete_role_permissions(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 343, in delete_role_permissions
+    db.delete(role_permissions)
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2606, in delete
+    util.raise_(
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\sqlalchemy\util\compat.py", line 207, in raise_
+    raise exception
+sqlalchemy.orm.exc.UnmappedInstanceError: Class 'builtins.list' is not mapped
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: 'list' object has no attribute 'delete'
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 122, in DeleteRolePermissions
+    result = crud.delete_role_permissions(db, request)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\crud.py", line 342, in delete_role_permissions
+    db.query(model.RolePermissions).filter_by(role_id = request.roleid).all().delete()
+AttributeError: 'list' object has no attribute 'delete'
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+ERROR:grpc._server:Exception calling application: IntegrityError('(psycopg2.errors.ForeignKeyViolation) insert or update on table "role_permissions" v has type IntegrityError, but expected one of: bytes, unicode
+Traceback (most recent call last):
+  File "D:\VinculumSolution\PIM_WORKFLOW\venv\lib\site-packages\grpc\_server.py", line 443, in _call_behavior
+    response_or_iterator = behavior(argument, context)
+  File "D:\VinculumSolution\PIM_WORKFLOW\workflow\main.py", line 108, in AssignPermissionToRole
+    return workflow_pb2.StatusResponse(message=result)
+TypeError: IntegrityError('(psycopg2.errors.ForeignKeyViolation) insert or update on table "role_permissions" v has type IntegrityError, but expected one of: bytes, unicode
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
+INFO:root:Server started
